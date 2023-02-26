@@ -14,7 +14,7 @@ export const fetchPokemons = createAsyncThunk(
 );
 
 export const fetchPokemonInfo = createAsyncThunk(
-  'pokemonInfo/getPokemon',
+  'pokemonInfo/getInfo',
   async (url: string, thunkApi) => {
     try {
       const response = await pokemonApi.getPokemonInfo(url);

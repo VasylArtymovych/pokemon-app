@@ -1,7 +1,6 @@
 import React from 'react';
 import { IPokemon } from 'types';
 import { ItemContainer } from './ListItem.styled';
-import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { setPokemonUrl } from 'store/reducers';
@@ -26,15 +25,21 @@ const ListItem: React.FC<ListItemProps> = ({ pokemon }) => {
       <Typography
         variant="h2"
         sx={{
+          fontSize: {
+            lg: 30,
+            md: 20,
+            sm: 15,
+            xs: 10,
+          },
           fontFamily: 'fantasy',
-          fontSize: '2rem',
           fontWeight: 'bold',
           textShadow: 'rgba(37,15,209,0.35) -16px 10px 7px',
         }}
       >
         {pokemon.name}
       </Typography>
-      <Avatar sx={{ bgcolor: 'transparent', mr: '2rem' }} aria-label="logo">
+
+      <Avatar sx={{ bgcolor: 'transparent' }} aria-label="logo">
         <img src={pokemonLogo} alt="pokemon-ball" />
       </Avatar>
     </ItemContainer>

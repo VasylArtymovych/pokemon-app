@@ -3,7 +3,7 @@ import { fetchPokemonInfo } from '../operations';
 import { IPokemonInfoState } from 'types';
 
 const initialState: IPokemonInfoState = {
-  pokemonUrl: '',
+  pokemonUrl: 'https://pokeapi.co/api/v2/pokemon/1',
   pokemonInfo: null,
   isLoading: 'idle',
   error: '',

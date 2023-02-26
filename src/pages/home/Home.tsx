@@ -9,30 +9,35 @@ import PokemonList from 'components/PokemonList';
 import { pokemonsSelector } from 'store/selectors';
 import { Container } from '@mui/system';
 import Header from 'components/Header';
+import { LinearProgress } from '@mui/material';
 
 const Home: React.FC = () => {
   const { currentUrl, onPrevBtnClick, onNextBtnClick } = usePagination(baseUrl);
   useFetchPokemons(currentUrl);
-  const { pokemons } = useAppSelector(pokemonsSelector);
+  const { pokemons, isLoading, error } = useAppSelector(pokemonsSelector);
 
   return (
     <Container
       maxWidth="xl"
       sx={{
-        height: '100vh',
+        height: { md: '100vh' },
         background: '#c4b9e4',
         padding: '3.7rem 0 1rem',
       }}
     >
       <Header />
+      {isLoading === 'pending' && <LinearProgress color="secondary" />}
       <Box sx={{ display: 'flex', pb: '1.5rem' }}>
         {pokemons && <PokemonList pokemons={pokemons.results} />}
         <Outlet />
       </Box>
-      <Pagination
-        onPrevBtnClick={onPrevBtnClick}
-        onNextBtnClick={onNextBtnClick}
-      />
+      {pokemons && (
+        <Pagination
+          onPrevBtnClick={onPrevBtnClick}
+          onNextBtnClick={onNextBtnClick}
+        />
+      )}
+      {isLoading === 'failed' && <h2>{error}</h2>}
     </Container>
   );
 };

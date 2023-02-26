@@ -16,7 +16,6 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemons }) => {
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: '2rem',
-        // flexGrow: 1,
       }}
     >
       {pokemons.map((pokemon) => (
