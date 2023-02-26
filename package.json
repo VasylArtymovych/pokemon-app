@@ -2,7 +2,6 @@
   "name": "pokemon-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://VasylArtymovych.github.io/pokemon-app/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
