@@ -4,7 +4,6 @@ import { IPokemonsState } from 'types';
 
 const initialState: IPokemonsState = {
   pokemons: null,
-  pokemonInfo: null,
   isLoading: 'idle',
   error: '',
 };

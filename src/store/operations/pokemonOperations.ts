@@ -12,3 +12,15 @@ export const fetchPokemons = createAsyncThunk(
     }
   }
 );
+
+export const fetchPokemonInfo = createAsyncThunk(
+  'pokemonInfo/getPokemon',
+  async (url: string, thunkApi) => {
+    try {
+      const response = await pokemonApi.getPokemonInfo(url);
+      return response;
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
